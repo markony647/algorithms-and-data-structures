@@ -25,6 +25,13 @@ def gcd2(a, b):
     return max(a, b)
 
 
+def gcd3(a, b):
+    assert a >= 0 and b >= 0
+    if a == 0 or b == 0:
+        return max(a, b)
+    return gcd3(b % a, a)
+
+
 print(gcd(3918848, 1653264))
 print(gcd(58, 46))
 
