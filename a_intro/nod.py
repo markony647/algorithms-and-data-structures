@@ -17,3 +17,15 @@ def gcd(a, b):
 
 
 print(gcd(3918848, 1653264))
+print(gcd(58, 46))
+
+
+# Very inefficient algorithm
+def naive_gcd(a, b):
+    nod = 1
+    for i in range(2, min(a, b)):
+        if a % i == 0 and b % i == 0:
+            nod = i
+    return nod
+
+print(naive_gcd(58, 46))
