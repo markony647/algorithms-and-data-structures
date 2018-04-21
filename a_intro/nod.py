@@ -16,16 +16,26 @@ def gcd(a, b):
             return gcd(b % a, a)
 
 
+def gcd2(a, b):
+    while a and b:
+        if a >= b:
+            a = a % b
+        else:
+            b = b % a
+    return max(a, b)
+
+
 print(gcd(3918848, 1653264))
 print(gcd(58, 46))
 
 
 # Very inefficient algorithm
 def naive_gcd(a, b):
-    nod = 1
-    for i in range(2, min(a, b)):
-        if a % i == 0 and b % i == 0:
-            nod = i
-    return nod
+    assert a >= 0 and b >= 0
+    for d in reversed(range(max(a, b) + 1)):
+        if d == 0 or a % d == b % d == 0:
+            return d
+    return d
 
-print(naive_gcd(58, 46))
+print(naive_gcd(46, 58))
+print(naive_gcd(3918848, 1653264))
